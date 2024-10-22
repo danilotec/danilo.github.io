@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='style.css')}}">
+    <title>Danilo Andrade</title>
+</head>
+<body>
+    <main>
+
+
+        <h2>Mensagens armazenadas</h2>
+        <form action="/clear" method="POST">
+            <p class="description">
+                {{banco_dados}}
+            </p><br><br>
+
+            <button type="submit" class="custom-btn btn-3" id="submit_button">Limpar</button><br><br>
+        </form>
+    </main>
+    
+</body>
+</html>

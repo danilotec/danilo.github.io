@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='style.css')}}">
+    <title>Danilo Andrade</title>
+</head>
+<body>
+
+    <header>
+        <h1>Quem sou eu?</h1>
+        <img id="image_perfil" src="{{url_for('static', filename='images/perfil.jpeg')}}" alt="foto de perfil">
+        <br>
+        <p class="description">Me chamo Danilo Andrade, 
+            sou tecnico em eletromecanica, automação industrial, 
+            com conhecimento e experiência abrangente em tecnologias como IoT,
+            sistemas de monitoramento, e controle de processos remotos,
+            trabalho tambem com desenvolvimento para esses sistemas, e atuo desde a
+            elaboração do projeto, montagem, instalação e entrega do produto final.
+        <br><br>
+            Atuo tambem na execução de projetos de, eficiência energetica,
+            como grupo geradores, sistemas de aterramentos e SPDA, manutenção de sistemas de recalque
+            de incêndio.
+
+        </p>
+    </header>
+
+    <main>
+        <h2 id="project">Projetos</h2>
+        <div id="box_image">
+            <img class="project_image" src="{{url_for('static', filename='images/iot_run.jpg')}}" alt="projeto 1">
+            <img class="project_image" src="{{url_for('static', filename='images/iot_test.jpg')}}" alt="projeto 2">
+            <img class="project_image" src="{{url_for('static', filename='images/command.jpg')}}" alt="projeto 3">
+            <img class="project_image" src="{{url_for('static', filename='images/spda.jpg')}}" alt="projeto 4">
+        </div>
+
+        <h2>Contate-me</h2>
+        <form action="/receber" method="POST">
+
+            <label for="email_input"></label>
+            <input type="email" placeholder="email" id="email_input" name="email_input" required>
+
+            <label for="message_input"></label>
+            <textarea type="text" placeholder="mensagem" id="message_input" name="message_input" required></textarea>
+
+            <button type="submit" class="custom-btn btn-3" id="submit_button">Enviar</button>
+        </form>
+    </main>
+
+    <footer>
+        <h3 id="social">Redes sociais</h3>
+        <ul>
+            <li>
+                <a href="https://github.com/danilotec" target="_blank" rel="external">
+                    <img src="{{url_for('static', filename='images/github-big-logo.png')}}" alt="github">
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/danilo_4ndrade/" target="_blank" rel="external">
+                    <img src="{{url_for('static', filename='images/instagram.png')}}" alt="instagram">
+                </a>
+            </li>
+            <li>
+                <a href="linkedin.com/in/danilo-andrade-516995240" target="_blank" rel="external">
+                    <img src="{{url_for('static', filename='images/logo-do-linkedin.png')}}" alt="linkedin">
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/@daniloandrade3555" target="_blank" rel="external">
+                    <img src="{{url_for('static', filename='images/youtube.png')}}" alt="youtube">
+                </a>
+            </li>
+        </ul>
+        <p id="email">danilocrautomacao@gmail.com</p>
+    </footer>
+    
+</body>
+</html>
