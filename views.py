@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, request, redirect, url_for
-from main import enviar_mensagem
+from api import enviar_mensagem
 
 db = []
 @app.route("/")

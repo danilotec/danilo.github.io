@@ -1,4 +1,3 @@
-# from views import db
 from twilio.rest import Client
 
 account_sid = 'AC27aeb99a862caa2ee504d65a039b4e15'
