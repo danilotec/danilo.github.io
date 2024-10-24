@@ -13,6 +13,5 @@ def enviar_mensagem(conteudo):
         body=conteudo,
         to='whatsapp:+557991790119'
     )
-    print(message)
     return message
 

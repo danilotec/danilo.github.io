@@ -1,8 +1,11 @@
-from app import app
 from flask import render_template, request, redirect, url_for
+
+from app import app
 from api import enviar_mensagem
 
 db = []
+banco = ''
+
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -11,16 +14,23 @@ def index():
 def receber():
     email = request.form['email_input']
     mensagem = request.form['message_input']
+    
     if email and mensagem:
-        db.append(f'email: {email}\nmensagem: {mensagem}')
+        db.append(
+            f'email: {email}\nmensagem: {mensagem}'
+            )
+        global banco #pessima maneira de usar uma variavel, porem como teste funciona
+        banco = db[-1]
         enviar_mensagem(db[-1])
+
         if len(db) > 3:
             db.clear()
+            
     return redirect(url_for('index'))
 
 @app.route('/admin')
 def admin():
-    return render_template('admin.html', banco_dados=db)
+    return render_template('admin.html', banco_dados=banco)
 
 @app.route('/clear', methods=['POST'])
 def clear():
