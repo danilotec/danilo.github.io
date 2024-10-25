@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, jsonify
 
 from app import app
 from api import enviar_mensagem
@@ -36,3 +36,24 @@ def admin():
 def clear():
     db.clear()
     return redirect(url_for('admin'))
+
+@app.route('/data', methods=['POST'])
+def receive_data():
+    data = request.get_json()
+
+    if 'leitura' in data:
+        reader = data['leitura']
+        print(f'receive: {reader}')
+        return jsonify(
+            {
+                "status": "success",
+                "reader": reader 
+            }
+        ), 200
+    else:
+        return jsonify(
+            {
+                "status": "error",
+                "message": "data not found"
+            }
+        ), 400
