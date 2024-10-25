@@ -7,7 +7,7 @@
 body{
     margin-left: 50px;
     margin-right: 50px;
-    background-image: url(images/background.jpg);
+    background-color: #404040;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
