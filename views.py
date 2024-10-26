@@ -37,30 +37,3 @@ def clear():
     db.clear()
     return redirect(url_for('admin'))
 
-last_reader = None
-
-@app.route('/data', methods=['POST'])
-def receive_data():
-    global last_reader  
-    data = request.get_json()
-
-    if 'leitura' in data:
-        last_reader = data['leitura'] 
-        print(f'receive: {last_reader}')
-        return jsonify(
-            {
-                "status": "success",
-                "reader": last_reader 
-            }
-        ), 200
-    else:
-        return jsonify(
-            {
-                "status": "error",
-                "message": "data not found"
-            }
-        ), 400
-
-@app.route('/display')
-def display_data():
-    return render_template('display.html', leitura=last_reader) 
